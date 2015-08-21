@@ -1,0 +1,43 @@
+/* comment
+*/
+#include <stdio.h>
+#include <stdlib.h>
+#define importantvalue 0
+
+int nextperfect(int n);
+int isperfect(int n);
+
+int
+main(int argc, char *argv[]) {
+	int n=1, x;
+	while (n<10000){
+		x=nextperfect(n);
+		printf("%d is a perfect number\n", x);
+		n+=x;
+	}
+	return 0;
+}
+
+int 
+nextperfect(n){
+	while (isperfect(n)==0){
+		n+=1;
+	}
+	return n;
+}
+
+int
+isperfect(n){
+	int sum=0, a=1;
+	while (a<=n/2){
+		if (n%a==0){
+			sum+=a;
+		}
+		a+=1;
+	}if (sum==n){
+		return 1;
+	}
+	else{
+		return 0;
+	}
+}
