@@ -1,0 +1,35 @@
+/* comment
+*/
+#include <stdio.h>
+#include <stdlib.h>
+#define importantvalue 0
+
+int n_choose_k(int n, int k);
+int factorial(int a);
+
+int
+main(int argc, char *argv[]) {
+	int n, k, x;
+	printf("Enter integers n and k: ");
+	while (scanf("%d %d", &n, &k)==2){
+		x=n_choose_k(n,k);
+		printf("%d choose %d is %d\n", n, k, x);
+		printf("Enter integers n and k: ");
+	}
+	return 0;
+}
+
+int 
+n_choose_k(n,k){
+	return (factorial(n))/(factorial(n-k)*factorial(k));
+}
+
+int
+factorial(a){
+	int x=1;
+	while (a>1){
+		x*=a;
+		a-=1;
+	}
+	return x;
+}
