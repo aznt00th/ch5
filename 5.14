@@ -1,0 +1,40 @@
+/* comment
+*/
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#define importantvalue 0
+double log_star(double x);
+int logstar(double x);
+double log2(double x);
+
+int
+main(int argc, char *argv[]) {
+	double x;
+	int y;
+	printf("Enter x: ");
+	scanf("%lf", &x);
+	printf("log star of %lf is %d\n", x, logstar(x));
+	y= (int)log_star(x);
+	printf("%d",y);
+	return 0;
+}
+
+double 
+log_star(double x){
+	/*recursively*/
+	if (x<1){
+		return 0;
+	}else {
+		return 1 + log_star(log2(x));
+	}
+}
+
+int 
+logstar(double x) {
+	int count=0;
+	while (x>1){
+		x= log2(x);
+		count+=1;
+	}return count;
+}
