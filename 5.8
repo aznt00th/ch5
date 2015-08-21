@@ -1,0 +1,44 @@
+/* comment
+*/
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#define CUBE_LOWER 1e-6
+#define CUBE_UPPER 1e+6
+#define CUBE_ITERATIONS 25
+
+int near_equal(double a, double b);
+double cube_root(double v);
+
+int
+main(int argc, char *argv[]) {
+	double v;
+	printf("Enter v: ");
+	scanf("%lf", &v);
+	cube_root(v);
+	return 0;
+}
+
+int
+near_equal(double a, double b){
+	if (a==b && b==0.00000){
+		return 1;
+	}else if((1.0001*a>=b && .9999*a<=b)|| (1.0001*b>=a && .9999*b<=a)){
+		return 1;
+	}else{
+		return 0;
+	}
+}
+
+double
+cube_root(double v){
+	double next=1.0;
+	if (fabs(v)<CUBE_LOWER || fabs(v)>CUBE_UPPER)  {
+		printf("Warning: cube root may be inaccurate\n");
+	}
+	while (!near_equal(next*next*next,v)){
+		next = (2*next + v/(next*next))/3;
+		printf("%lf\n", next);
+	}
+	return next;
+}
