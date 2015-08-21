@@ -1,0 +1,50 @@
+/* comment
+*/
+#include <stdio.h>
+#include <stdlib.h>
+#define importantvalue 0
+double sum_sequence(int n);
+int sum(int n);
+double factorial(int a);
+
+int
+main(int argc, char *argv[]) {
+	int n;
+	double x;
+	printf("Enter integer n:");
+	while (scanf("%d", &n)==1){
+		x=sum_sequence(n);
+		printf("sum sequence of %d is %lf\n", n, x);
+		printf("Enter integer n:");
+	}
+	return 0;
+}
+
+double 
+sum_sequence(int n){
+	double total=0.0;
+	while (n>0){
+		total+=sum(n)/factorial(n);
+		n-=1;
+	}return total;
+}
+		
+
+int 
+sum(n){
+	int sum=0;
+	while (n>0){
+		sum+=n;
+		n-=1;
+	}return sum;
+}
+
+double
+factorial(a){
+	double x=1.0;
+	while (a>1){
+		x*=a;
+		a-=1;
+	}
+	return x;
+}
