@@ -1,0 +1,40 @@
+/* comment
+*/
+#include <stdio.h>
+#include <stdlib.h>
+#define importantvalue 0
+
+int
+main(int argc, char *argv[]) {
+	double initial, amount, ann_rateC, ann_rateD, a, b, c;
+	int years
+	printf("Enter number of years     : ");
+	scanf("%d", &years);
+	printf("Enter annual Credit rate% : ");
+	scanf("%lf", &ann_rateC):
+	printf("Enter annual Debit rate% : ");
+	scanf("%lf", &ann_rateD):
+	printf("Enter monthly amount     : ");
+	scanf("%lf", &amount):
+	printf("Enter initial balance    : ");
+	scanf("%lf", &initial):
+	a= savings_plan(initial, amount, ann_rateC, ann_rateD, years);
+	printf("Saving $%lf plus $%lf per month for %d year\n", initial, amount, years);
+	if (initial<0){
+		printf("at %lf% per year: %lf", ann_rateC, a);
+	}else{
+		printf("at %lf% per year: %lf", ann_rateD, a);
+	return 0;
+}
+
+double
+savings_plan(double initial, double amount, double ann_rateC, double ann_rateD, int years){
+	int month;
+	double monthly_mult, balance = initial;
+	monthly_mult = 1 + (ann_rate/100.00)/12;
+	for (month=1; month<=12*years; month++){
+		balance *= monthly_mult;
+		balance += amount;
+	}
+	return balance;
+}
