@@ -1,0 +1,48 @@
+/* comment
+*/
+#include <stdio.h>
+#include <stdlib.h>
+#define importantvalue 0
+
+int max_2_int(int a,int b);
+int max_4_int(int a,int b, int c,int d);
+int int_pow(int a, int b);
+
+int
+main(int argc, char *argv[]) {
+	int x, a, b, c, d;
+	printf("Enter four integers: ");
+	while (scanf("%d %d %d %d", &a, &b, &c, &d)==4){
+		x=max_4_int(a,b,c,d);
+		printf("The larger integer is %d\n", x);
+		printf("Enter four integers: ");
+	}printf("Ensure that all data entered is integer format");
+	return 0;
+}
+int
+max_2_int(a,b) {
+	if (a<b){
+		return b;
+	}
+	else {
+		return a;
+	}
+}
+
+int
+max_4_int(a,b,c,d){
+	int e, f;
+	e = max_2_int(a,b);
+	f = max_2_int(c,d);
+	return max_2_int(e,f);
+}
+
+int
+int_pow(a,b){
+	/* should check for negatives*/
+	while (b>1){
+		a*=a;
+		b-=1
+	}
+	return a;
+}
